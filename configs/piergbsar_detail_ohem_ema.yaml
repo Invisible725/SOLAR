@@ -1,0 +1,60 @@
+DEVICE          : cuda
+SAVE_DIR        : 'output'
+
+MODEL:
+  NAME          : SOLAR
+  BACKBONE      : SAM2-Detail-OHEM-EMA-PIE
+  SAM2_CFG      : './sam2_hiera_b+.yaml'
+  SAM2_CKPT     : './checkpoints/sam2_hiera_base_plus.pt'
+
+DATASET:
+  NAME          : PIERGBSAR
+  ROOT          : '/path/to/PIE-RGB-SAR'
+  FORMAT        : 'pretiled'
+  IGNORE_LABEL  : 255
+  MODALS        : ['optical', 'sar']
+  SAR_MODAL     : 'sar'
+  OPTICAL_FOLDER: 'rgb'
+  MODAL_CHANNELS:
+    optical     : 3
+    sar         : 1
+
+TRAIN:
+  IMAGE_SIZE    : [1024, 1024]
+  PATCH_SIZE    : 256
+  STRIDE        : 128
+  STRIDE_VAL    : 256
+  BATCH_SIZE    : 4
+  EPOCHS        : 110
+  EVAL_START    : 0
+  EVAL_INTERVAL : 1
+  AMP           : false
+  DDP           : false
+  ACCUM_STEPS   : 8
+  AUX_WEIGHT    : 0.4
+  LORA_R        : 16
+  EMA           : true
+  EMA_DECAY     : 0.999
+
+LOSS:
+  NAME          : DiceOhem
+  CLS_WEIGHTS   : false
+  DICE_WEIGHT   : 0.5
+  OHEM_WEIGHT   : 1.0
+  THRESH        : 0.7
+
+OPTIMIZER:
+  NAME          : adamw
+  LR            : 0.0005
+  WEIGHT_DECAY  : 0.01
+
+SCHEDULER:
+  NAME          : warmuppolylr
+  POWER         : 0.9
+  WARMUP        : 5
+  WARMUP_RATIO  : 0.1
+
+EVAL:
+  IMAGE_SIZE    : [1024, 1024]
+  BATCH_SIZE    : 4
+  ORIGINAL_SIZE : [256, 256]
