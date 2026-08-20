@@ -140,6 +140,15 @@ The corresponding SAM2 config is included in this repository:
 sam2_configs/sam2_hiera_b+.yaml
 ```
 
+## Trained Checkpoints
+
+The trained SOLAR checkpoints for each dataset are available below.
+
+| Dataset | Modalities | Checkpoint |
+| --- | --- | --- |
+| WHU-OPT-SAR | OPT + SAR | [WHUOptSAR_SAM2-Detail-OHEM-EMA_os](https://pan.baidu.com/s/1L_e1mfwJH06jyhoVZYTedw?pwd=m7j5) |
+| PIE-RGB-SAR | RGB + SAR | [PIERGBSAR_SAM2-Detail-OHEM-EMA-PIE_os](https://pan.baidu.com/s/11qfRtkM09cgXZigUCxYq-Q?pwd=m7j5) |
+
 ## Training
 
 Update dataset paths and SAM2 checkpoint paths in the config first, then run:
