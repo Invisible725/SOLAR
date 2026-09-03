@@ -58,8 +58,8 @@ If the pinned PyTorch wheels do not match your CUDA version, install `torch` and
 
 The paper evaluates SOLAR on:
 
-- **WHU-OPT-SAR**: optical and SAR land-cover segmentation with 8 classes: Background, Farmland, City, Village, Water, Forest, Road, and Others.
-- **PIE-RGB-SAR**: RGB and SAR land-cover segmentation with 6 classes: Others, City, Road, Water, Forest, and Farmland.
+- **[WHU-OPT-SAR](https://github.com/AmberHen/WHU-OPT-SAR-dataset)**: optical and SAR land-cover segmentation with 8 classes: Background, Farmland, City, Village, Water, Forest, Road, and Others.
+- **[PIE-RGB-SAR](https://github.com/whu-pzhang/ASANet)**: RGB and SAR land-cover segmentation with 6 classes: Others, City, Road, Water, Forest, and Farmland.
 
 Please download each dataset from its official source and follow its license. Then update the dataset root in the corresponding config file:
 
